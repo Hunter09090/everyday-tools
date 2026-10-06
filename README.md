@@ -2,37 +2,38 @@
 
 **Simple tools. Smarter days.**
 
-Everyday Tools is a fast, responsive collection of useful browser-based utilities for everyday life.
+A fast, responsive collection of free browser-based utilities for calculations, conversions, text work and everyday tasks.
 
-## Included tools
-- Age Calculator
-- Percentage Calculator
-- Discount Calculator
-- Profit & Loss Calculator
-- BMI Calculator
-- GPA / CGPA Calculator
-- Date Calculator
-- Unit Converter
-- Word & Character Counter
-- Text Case Converter
-- QR Code Generator
-- Password Generator
-- Random Number Generator
-- Countdown Timer
+## Tool categories
+
+### Calculators
+Age, Percentage, Discount, Profit & Loss, BMI, GPA/CGPA, Date, EMI, Loan, Salary, Tax, Area, Average.
+
+### Converters
+Unit Converter, Currency Converter, Time Zone Converter.
+
+### Text tools
+Word & Character Counter, Case Converter, JSON Formatter, URL Encoder/Decoder, Duplicate Line Remover.
+
+### Utilities
+QR Code Generator, Password Generator, Password Strength Checker, Random Number, Random Name Picker, Countdown Timer, Days Until, Number to Words.
 
 ## Features
-- Mobile-first responsive interface
+- 30+ useful tools
 - Search and category filtering
+- Responsive mobile-first design
 - Light / dark theme
-- Client-side calculations for privacy and speed
-- No installation required
-- GitHub Pages friendly
-
-## Technology
-HTML5 • CSS3 • Vanilla JavaScript
+- Client-side calculations wherever practical
+- Currency rates via the Frankfurter public API
+- PWA manifest and service worker
+- SEO metadata, sitemap, robots.txt and custom 404 page
+- No account required for core tools
 
 ## Privacy
-Where practical, calculations happen directly in the browser. The site does not require an account for its core tools.
+Calculations and text processing stay in the browser whenever practical. Currency and QR generation use external services when required by the tool.
+
+## Technology
+HTML5 • CSS3 • Vanilla JavaScript • GitHub Pages
 
 ## Credits
 Created and maintained by **Akter Hossen**.
