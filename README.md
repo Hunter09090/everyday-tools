@@ -1,20 +1,40 @@
 # Everyday Tools ✦
 
-A fast, modern collection of useful browser-based tools for everyday life.
+**Simple tools. Smarter days.**
 
-> **Simple tools. Smarter days.**
+Everyday Tools is a fast, responsive collection of useful browser-based utilities for everyday life.
 
-## Current release
-The first release establishes a premium responsive landing page, searchable tool library, category filtering, dark mode and the architecture for individual tools.
+## Included tools
+- Age Calculator
+- Percentage Calculator
+- Discount Calculator
+- Profit & Loss Calculator
+- BMI Calculator
+- GPA / CGPA Calculator
+- Date Calculator
+- Unit Converter
+- Word & Character Counter
+- Text Case Converter
+- QR Code Generator
+- Password Generator
+- Random Number Generator
+- Countdown Timer
 
-## Stack
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- GitHub Pages ready
+## Features
+- Mobile-first responsive interface
+- Search and category filtering
+- Light / dark theme
+- Client-side calculations for privacy and speed
+- No installation required
+- GitHub Pages friendly
 
-## Planned tools
-Age, percentage, discount, profit/loss, BMI, GPA/CGPA, date, unit and currency converters, text tools, QR generation, password generation, random numbers and timers.
+## Technology
+HTML5 • CSS3 • Vanilla JavaScript
 
 ## Privacy
-The project is designed around client-side utilities wherever practical, minimizing unnecessary data collection.
+Where practical, calculations happen directly in the browser. The site does not require an account for its core tools.
+
+## Credits
+Created and maintained by **Akter Hossen**.
+
+© 2026 Akter Hossen. All rights reserved.
