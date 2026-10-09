@@ -1,11 +1,13 @@
 {
-  "name": "ToolVerse — Every tool. One universe.",
-  "short_name": "ToolVerse",
+  "name": "Daily Magic — Everyday tasks, made easier",
+  "short_name": "Daily Magic",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#090b12",
   "theme_color": "#090b12",
-  "description": "A growing collection of free online tools for everyday life.",
-  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml"}]
+  "description": "A growing collection of fast, useful everyday tools in one beautifully designed place.",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
 }

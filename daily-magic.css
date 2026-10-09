@@ -1,0 +1,13 @@
+/* Daily Magic brand layer — isolated from legacy tool styles. */
+:root{--dm-violet:#a895ff;--dm-cyan:#67e2ee}
+.brand-mark-image{display:block;flex:0 0 38px;width:38px;height:38px;object-fit:cover;border-radius:12px;box-shadow:0 5px 22px #8c78ff38}
+.tv-brand{gap:10px;font-weight:800;letter-spacing:-.045em}
+.tv-brand>span:last-child{color:var(--tv-text)}
+.tv-brand>span:last-child>span{color:var(--dm-violet);opacity:1}
+.tv-brand:focus-visible{outline:2px solid var(--dm-cyan);outline-offset:4px;border-radius:12px}
+.tv-hero{background:radial-gradient(ellipse at 50% 0%,#7e61ff29,transparent 53%),radial-gradient(ellipse at 80% 55%,#40cdd40b,transparent 40%),linear-gradient(180deg,#0c0d1b 0%,var(--tv-bg) 100%)}
+.tv-hero h1 span,.tv-about h2 span{background:linear-gradient(105deg,#c2adff 0%,#8e8aff 45%,#6ce5ed 100%);-webkit-background-clip:text;background-clip:text}
+.tv-search:focus-within{border-color:#8e7cff;box-shadow:0 0 0 3px #8e7cff20,0 18px 55px #0003}
+.tv-category,.tv-tool-card{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.tv-category:focus-visible,.tv-tool-card a:focus-visible,.tv-fav:focus-visible,.tv-filter:focus-visible{outline:2px solid var(--dm-cyan);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
