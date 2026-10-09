@@ -6,9 +6,23 @@ Daily Magic is a mobile-first, bilingual (English + বাংলা) toolbox for
 ## Live site
 https://hunter09090.github.io/everyday-tools/
 
+## Categories
+1. Calculators & Math
+2. Converters
+3. Text & Writing
+4. Image & Design (planned tools)
+5. PDF & Documents (planned tools)
+6. Developer Tools
+7. Date & Time
+8. Money & Finance
+9. Education & Study
+10. Fun & Random
+11. Privacy & Security
+12. Health & Lifestyle
+
 ## Current capabilities
 - 29 existing individual tools and their existing URLs
-- 10 expandable categories
+- 12 expandable categories
 - English and Bengali interface toggle
 - Premium dark theme with optional light theme
 - Search and category filters
