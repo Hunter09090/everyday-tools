@@ -86,7 +86,7 @@
   }
   $$(".tv-category").forEach(()=>{}); // Stable initial setup; category buttons are delegated below.
   $("#categoryGrid").addEventListener("click",e=>{const btn=e.target.closest("[data-category]");if(!btn)return;category=btn.dataset.category;filter="all";$$(".tv-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="all"));render();$("#tools").scrollIntoView({behavior:"smooth",block:"start"})});
-  $$(".tv-filter").forEach(btn=>btn.addEventListener("click",()=>{filter=btn.dataset.filter;$$(".tv-filter").forEach(b=>b.classList.toggle("active",b===btn));renderTools()}));
+  $(".tv-filter").forEach(btn=>btn.addEventListener("click",()=>{filter=btn.dataset.filter;category="all";$(".tv-filter").forEach(b=>b.classList.toggle("active",b===btn));render()}));
   search.addEventListener("input",()=>{query=search.value;filter="all";$$(".tv-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="all"));renderTools()});
   $$("[data-search]").forEach(btn=>btn.addEventListener("click",()=>{search.value=btn.dataset.search;query=search.value;filter="all";$$(".tv-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="all"));renderTools();$("#tools").scrollIntoView({behavior:"smooth"})}));
   grid.addEventListener("click",e=>{
