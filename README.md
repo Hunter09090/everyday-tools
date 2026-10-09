@@ -1,42 +1,34 @@
-# ToolVerse ✦
-**Every tool. One universe.**
+# Daily Magic ✦
+**A little magic for everyday life.**
 
-ToolVerse is the expanded version of Everyday Tools: a mobile-first, bilingual (English + বাংলা), premium-dark online toolbox designed to grow over time.
+Daily Magic is a mobile-first, bilingual (English + বাংলা) toolbox for practical everyday tasks. It builds on the existing Everyday Tools project while keeping current tool URLs intact.
 
 ## Live site
 https://hunter09090.github.io/everyday-tools/
 
-## Categories
-1. Calculators & Math
-2. Converters
-3. Text & Writing
-4. Image & Design (roadmap)
-5. PDF & Documents (roadmap)
-6. Developer Tools
-7. Date & Time
-8. Money & Finance
-9. Education & Study
-10. Fun & Random
-
-## Current tools
-Age, percentage, discount, profit/loss, BMI, GPA/CGPA, date, EMI, loan, salary, tax, area, average, unit converter, currency converter, time-zone converter, days until, number to words, random number, random name picker, countdown timer, password generator, password strength checker, QR code generator, word counter, case converter, JSON formatter, URL encoder/decoder, duplicate line remover.
-
-## Features
-- Search across tool names, descriptions and keywords
-- Category filtering across 10 expandable categories
+## Current capabilities
+- 29 existing individual tools and their existing URLs
+- 10 expandable categories
 - English and Bengali interface toggle
-- Premium dark theme and optional light theme
-- Favorites and recently opened tools stored on the device
+- Premium dark theme with optional light theme
+- Search and category filters
+- Favorites and recently opened tools stored locally on the device
 - Keyboard shortcut `/` to focus search; `Esc` to clear
 - PWA manifest and service worker
-- Existing individual tool URLs retained
 - Client-side processing wherever practical
 
 ## Technology
 HTML5 · CSS3 · Vanilla JavaScript · GitHub Pages
 
-## Development notes
-- Keep existing `tools/*.html` routes intact when adding categories.
-- Add new tools to the catalog in `toolverse.js` and create the corresponding `tools/<id>.html` page.
-- Image/PDF categories are shown as planned categories until real tools are implemented.
-- GitHub Pages is static hosting; server-side features and secrets require a separate backend.
+## Architecture and safe expansion
+- Preserve existing `tools/*.html` routes.
+- Keep brand-wide styling in `daily-magic.css`; avoid unnecessary edits to legacy `style.css`.
+- Tool catalogue currently lives in `toolverse.js`; each listed tool must have a matching `tools/<id>.html` page.
+- Before a tool is listed, verify its route exists and its main interaction works.
+- New categories can be added to the category registry without changing unrelated tool pages.
+- Keep local-storage keys compatible during migration so existing favorites and preferences are not lost.
+- Use a feature branch and pull request for each meaningful change; test mobile layout, navigation, search, favorites, theme, language, and existing tool routes before merging.
+- Image and PDF categories must not be presented as fully functional until their real tools are implemented and tested.
+
+## Privacy and deployment
+Calculations and text processing should run locally whenever practical. External APIs may be required for live data. GitHub Pages is static hosting, so secrets and server-side features need a separate backend.
