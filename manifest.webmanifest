@@ -1,1 +1,11 @@
-{"name":"Everyday Tools","short_name":"Everyday Tools","start_url":"./","display":"standalone","background_color":"#f7f8fc","theme_color":"#6258ff","description":"Simple tools. Smarter days.","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml"}]}
+{
+  "name": "ToolVerse — Every tool. One universe.",
+  "short_name": "ToolVerse",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090b12",
+  "theme_color": "#090b12",
+  "description": "A growing collection of free online tools for everyday life.",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml"}]
+}
