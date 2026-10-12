@@ -1,5 +1,5 @@
-const CACHE = "daily-magic-v3";
-const CORE = ["./","./index.html","./style.css","./toolverse.css","./daily-magic.css","./tool-registry.js","./toolverse.js","./manifest.webmanifest","./icon.svg"];
+const CACHE = "daily-magic-v4";
+const CORE = ["./","./index.html","./style.css","./toolverse.css","./daily-magic.css","./tool-registry.js","./toolverse.js","./manifest.webmanifest","./icon.svg","./app-shell.css","./app-shell.js"];
 const APP_ASSET = /\.(?:html|css|js|webmanifest|svg)$/i;
 self.addEventListener("install", event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())));
 self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
