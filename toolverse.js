@@ -2,7 +2,18 @@
   "use strict";
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
-  const { categories, tools } = window.DAILY_MAGIC_REGISTRY;
+  const registry = window.DAILY_MAGIC_REGISTRY;
+  if (!registry || !Array.isArray(registry.categories) || !Array.isArray(registry.tools)) {
+    const target = document.querySelector("#toolGrid");
+    const emptyState = document.querySelector("#empty");
+    if (target) {
+      target.hidden = false;
+      target.innerHTML = '<div class="dm-load-error"><strong>Tools could not load.</strong><p>The catalogue did not arrive correctly. Refresh this page once; if the problem continues, the app update needs attention.</p><button type="button" onclick="location.reload()">Refresh Daily Magic</button></div>';
+    }
+    if (emptyState) emptyState.hidden = true;
+    return;
+  }
+  const { categories, tools } = registry;
   let lang = localStorage.getItem("toolverse-language") || "en";
   let category = "all";
   let filter = "all";
