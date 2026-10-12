@@ -6,6 +6,7 @@ document.documentElement.classList.add("dm-app-mode");
 const icon = isHome ? "icon.svg" : "../icon.svg";
 const home = isHome ? "./" : "../";
 const current = isHome ? "home" : "tools";
+if(!isHome){const h1=document.querySelector("h1");if(h1)document.title=h1.textContent.trim()+" · Daily Magic";}
 const bar = document.createElement("header");
 bar.className = "dm-appbar";
 bar.innerHTML = '<a href="'+home+'" aria-label="Daily Magic home"><img src="'+icon+'" alt=""><span class="dm-appname">Daily <span>Magic</span></span></a>' + (isHome ? '<span style="margin-left:auto;color:#9ca5bd;font-size:11px">YOUR TOOLKIT</span>' : '<a class="dm-back" href="'+home+'">← All tools</a>');
@@ -25,7 +26,7 @@ let installPrompt = null;
 window.addEventListener("beforeinstallprompt", e => {e.preventDefault();installPrompt=e;const item=nav.querySelector('[data-nav="install"]');if(item)item.style.color="#d0c6ff"});
 nav.addEventListener("click", async e => {
   const favoriteItem=e.target.closest('[data-nav="favorites"]');
-  if(favoriteItem){e.preventDefault();try{localStorage.setItem("dm-open-favorites","1")}catch{};location.href=home+"#tools";return}
+  if(favoriteItem){e.preventDefault();if(isHome){const fav=document.querySelector('[data-filter="favorites"]');if(fav)fav.click();document.querySelector("#tools")?.scrollIntoView({behavior:"smooth"});return}try{localStorage.setItem("dm-open-favorites","1")}catch{};location.href=home+"#tools";return}
   const item=e.target.closest('[data-nav="install"]'); if(!item)return;
   e.preventDefault();
   if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;return}
