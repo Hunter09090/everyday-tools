@@ -16,7 +16,8 @@
   const { categories, tools } = registry;
   let lang = localStorage.getItem("toolverse-language") || "en";
   let category = "all";
-  let filter = "all";
+  let filter = localStorage.getItem("dm-open-favorites") === "1" ? "favorites" : "all";
+  if (filter === "favorites") localStorage.removeItem("dm-open-favorites");
   let query = "";
   let favorites = safeRead("toolverse-favorites", []);
   let recent = safeRead("toolverse-recent", []);
