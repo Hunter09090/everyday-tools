@@ -14,7 +14,7 @@ main{max-width:760px;margin:auto;padding:55px 20px}.box{background:var(--tv-pane
 <div id="cmBox"><label for="h">Height (cm)</label><input id="h" type="number" min="50" max="300" step="any" inputmode="decimal" placeholder="e.g. 165"></div>
 <div id="ftBox" hidden><div class="grid"><div><label for="feet">Feet</label><input id="feet" type="number" min="1" max="9" step="1" inputmode="numeric" placeholder="e.g. 5"></div><div><label for="inch">Inches</label><input id="inch" type="number" min="0" max="11.99" step="any" inputmode="decimal" placeholder="e.g. 5"></div></div></div>
 <button id="calculate" type="button">Calculate BMI</button><div id="r" class="result" hidden aria-live="polite"></div></div></main>
-<script>
+<script src="../app-shell.js?v=20261012"></script><script>
 const unit=document.getElementById('unit'),cmBox=document.getElementById('cmBox'),ftBox=document.getElementById('ftBox'),result=document.getElementById('r');
 unit.addEventListener('change',()=>{const feetMode=unit.value==='ft';cmBox.hidden=feetMode;ftBox.hidden=!feetMode;result.hidden=true});
 function calc(){
@@ -27,4 +27,4 @@ function calc(){
  result.innerHTML='<strong style="font-size:25px">BMI: '+bmi.toFixed(1)+'</strong><br>'+category+'<br><small>BMI is a screening measure, not a diagnosis. Adult BMI categories may not apply to children or teens.</small>';
 }
 document.getElementById('calculate').addEventListener('click',calc);
-</script><script src="../app-shell.js?v=20261012"></script></body></html>
+</script></body></html>
