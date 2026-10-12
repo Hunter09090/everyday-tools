@@ -1,0 +1,25 @@
+/* Daily Magic — native-like app shell */
+:root{--app-bg:#090b12;--app-panel:#111522;--app-line:#292e43;--app-text:#f4f5ff;--app-muted:#9ca5bd;--app-violet:#a995ff;--app-cyan:#69e6ee}
+html{background:var(--app-bg);scroll-padding-top:88px}
+body{background:radial-gradient(ellipse at 50% -10%,rgba(126,96,255,.16),transparent 42%),var(--app-bg)!important;color:var(--app-text)!important;font-family:Inter,"Hind Siliguri",system-ui,sans-serif!important;padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
+.dm-appbar{height:64px;position:sticky;top:0;z-index:1000;display:flex;align-items:center;gap:12px;padding:0 18px;background:rgba(9,11,18,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(169,149,255,.15)}
+.dm-appbar a{display:flex;align-items:center;gap:10px;color:var(--app-text);text-decoration:none;font-weight:800;letter-spacing:-.04em}
+.dm-appbar img{width:34px;height:34px;border-radius:11px}
+.dm-appbar .dm-back{margin-left:auto;border:1px solid var(--app-line);border-radius:12px;padding:9px 12px;color:#c6bcff;font-size:12px;font-weight:700}
+.dm-appbar .dm-appname span{color:var(--app-violet)}
+.dm-bottom-nav{position:fixed;z-index:1200;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:9px 12px calc(9px + env(safe-area-inset-bottom,0px));background:rgba(13,16,27,.96);border-top:1px solid rgba(169,149,255,.16);backdrop-filter:blur(22px)}
+.dm-bottom-nav a{min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#8f98b1;text-decoration:none;font-size:10px;font-weight:700;border-radius:13px}
+.dm-bottom-nav a .dm-nav-icon{font-size:19px;line-height:1}
+.dm-bottom-nav a[aria-current="page"]{color:#d0c6ff;background:rgba(151,130,255,.13)}
+.dm-install-card{margin:18px auto;padding:14px 16px;max-width:760px;border:1px solid rgba(169,149,255,.22);border-radius:18px;background:linear-gradient(130deg,rgba(137,115,255,.13),rgba(105,230,238,.05));color:var(--app-text);display:flex;align-items:center;gap:12px}
+.dm-install-card p{margin:2px 0 0;color:var(--app-muted);font-size:12px}
+.dm-install-card button{margin:0 0 0 auto;white-space:nowrap;background:linear-gradient(120deg,#a995ff,#69e6ee);color:#111322;border:0;border-radius:12px;padding:11px 14px;font-weight:800}
+.dm-tool-error{position:fixed;z-index:2000;left:14px;right:14px;bottom:calc(82px + env(safe-area-inset-bottom,0px));padding:14px 16px;border:1px solid #ff718b;background:#291521;color:#ffd8df;border-radius:14px;box-shadow:0 10px 35px #0008;font-size:13px}
+.dm-app-mode .topbar nav{display:none}
+.dm-app-mode main{padding-top:24px!important}
+.dm-app-mode main>.back{display:none!important}
+.dm-app-mode main>.box{border-radius:24px!important;border-color:rgba(169,149,255,.18)!important;box-shadow:0 18px 55px #0003}
+.dm-app-mode input,.dm-app-mode select,.dm-app-mode textarea{border-color:#30364d!important;border-radius:13px!important;background:#0d111c!important;color:#f4f5ff!important;min-height:46px}
+.dm-app-mode button{border-radius:13px!important;min-height:44px}
+@media(min-width:800px){.dm-bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(560px,calc(100% - 32px));border:1px solid rgba(169,149,255,.2);border-bottom:0;border-radius:20px 20px 0 0}.dm-appbar{padding-inline:max(24px,calc((100% - 900px)/2))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
