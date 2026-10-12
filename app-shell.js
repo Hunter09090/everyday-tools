@@ -24,6 +24,8 @@ document.body.append(nav);
 let installPrompt = null;
 window.addEventListener("beforeinstallprompt", e => {e.preventDefault();installPrompt=e;const item=nav.querySelector('[data-nav="install"]');if(item)item.style.color="#d0c6ff"});
 nav.addEventListener("click", async e => {
+  const favoriteItem=e.target.closest('[data-nav="favorites"]');
+  if(favoriteItem){e.preventDefault();try{localStorage.setItem("dm-open-favorites","1")}catch{};location.href=home+"#tools";return}
   const item=e.target.closest('[data-nav="install"]'); if(!item)return;
   e.preventDefault();
   if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;return}
@@ -33,6 +35,23 @@ nav.addEventListener("click", async e => {
   else if(/iPhone|iPad|iPod/i.test(navigator.userAgent)) message='To install: tap Share, then “Add to Home Screen”.';
   else message='To install: open the browser menu (⋮) and choose “Install app” or “Add to Home screen”.';
   const toast=document.createElement("div");toast.className="dm-tool-error";toast.textContent=message;document.body.append(toast);setTimeout(()=>toast.remove(),5000);
+});
+// Make tool controls robust on browsers that do not expose element IDs as window globals.
+document.querySelectorAll("[id]").forEach(el => {
+  const id=el.id;
+  if(!id || window[id]===el) return;
+  try {
+    if(!(id in window) || !(window[id] instanceof Element)) {
+      Object.defineProperty(window,id,{value:el,writable:true,configurable:true});
+    }
+  } catch {}
+});
+window.addEventListener("error", e => {
+  if(e.message && !e.message.includes("Script error")) {
+    const toast=document.createElement("div");toast.className="dm-tool-error";
+    toast.textContent="This tool encountered an error: "+e.message;
+    document.body.append(toast);setTimeout(()=>toast.remove(),6000);
+  }
 });
 document.addEventListener("error", e => {
  if(e.target && e.target.tagName==="SCRIPT"){const toast=document.createElement("div");toast.className="dm-tool-error";toast.textContent="A tool script failed to load. Check your connection and reload Daily Magic.";document.body.append(toast)}
