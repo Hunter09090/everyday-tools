@@ -1,4 +1,4 @@
-const CACHE = "daily-magic-v4";
+const CACHE = "daily-magic-v5";
 const CORE = ["./","./index.html","./style.css","./toolverse.css","./daily-magic.css","./tool-registry.js","./toolverse.js","./manifest.webmanifest","./icon.svg","./icon-192.svg","./icon-512.svg","./app-shell.css","./app-shell.js"];
 const APP_ASSET = /\.(?:html|css|js|webmanifest|svg)$/i;
 self.addEventListener("install", event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())));
