@@ -34,7 +34,7 @@
     let list=tools.filter(t=>(category==="all"||t.cat===category)&&(!q||[t.en,t.bn,t.descEn,t.descBn,t.keys,t.cat].join(" ").toLocaleLowerCase().includes(q)));
     if(filter==="favorites") list=list.filter(t=>favorites.includes(t.id));
     if(filter==="recent") list=list.filter(t=>recent.includes(t.id)).sort((a,b)=>recent.indexOf(a.id)-recent.indexOf(b.id));
-    grid.innerHTML=list.map(t=>'<div class="tv-tool-card"><button type="button" class="tv-fav '+(favorites.includes(t.id)?"active":"")+'" data-favorite="'+t.id+'" aria-label="'+esc(text("Add to favorites","পছন্দের তালিকায় যোগ করুন"))+'" aria-pressed="'+favorites.includes(t.id)+'">'+(favorites.includes(t.id)?"★":"☆")+'</button><a href="tools/'+t.id+'.html" class="tv-tool-link" data-open-tool="'+t.id+'"><div class="tool-icon">'+t.icon+'</div><h3>'+text(t.en,t.bn)+'</h3><p>'+text(t.descEn,t.descBn)+'</p><span class="tool-tag">'+esc(text(categories.find(c=>c.id===t.cat)?.en||t.cat,categories.find(c=>c.id===t.cat)?.bn||t.cat))+'</span></a></div>').join("");
+    grid.innerHTML=list.map(t=>'<div class="tv-tool-card" style="--tool-color:'+esc(categories.find(c=>c.id===t.cat)?.color||"#6557d9")+'"><button type="button" class="tv-fav '+(favorites.includes(t.id)?"active":"")+'" data-favorite="'+t.id+'" aria-label="'+esc(text("Add to favorites","পছন্দের তালিকায় যোগ করুন"))+'" aria-pressed="'+favorites.includes(t.id)+'">'+(favorites.includes(t.id)?"★":"☆")+'</button><a href="tools/'+t.id+'.html" class="tv-tool-link" data-open-tool="'+t.id+'"><div class="tool-icon">'+t.icon+'</div><h3>'+text(t.en,t.bn)+'</h3><p>'+text(t.descEn,t.descBn)+'</p><span class="tool-tag">'+esc(text(categories.find(c=>c.id===t.cat)?.en||t.cat,categories.find(c=>c.id===t.cat)?.bn||t.cat))+'</span></a></div>').join("");
     count.textContent=list.length+" "+text(list.length===1?"tool":"tools","টি টুল");
     empty.hidden=list.length>0;
     grid.hidden=list.length===0;
@@ -67,10 +67,13 @@
   });
   $("#resetFilters").addEventListener("click",()=>{category="all";filter="all";query="";search.value="";$$(".tv-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter==="all"));render()});
   $("#languageBtn").addEventListener("click",()=>{lang=lang==="en"?"bn":"en";localStorage.setItem("toolverse-language",lang);applyLanguage()});
+  // Daily Magic uses a consistent light theme for readable text and controls.
+  document.body.classList.remove("dark");
+  localStorage.setItem("toolverse-theme","light");
   const themeBtn=$("#themeBtn");
-  function applyTheme(theme){document.body.classList.toggle("dark",theme==="dark");themeBtn.textContent=theme==="dark"?"☼":"☾";themeBtn.setAttribute("aria-label",theme==="dark"?"Switch to light theme":"Switch to dark theme");document.querySelector('meta[name="theme-color"]').content=theme==="dark"?"#090b12":"#f5f6fb"}
-  applyTheme(localStorage.getItem("toolverse-theme")||"dark");
-  themeBtn.addEventListener("click",()=>{const next=document.body.classList.contains("dark")?"light":"dark";localStorage.setItem("toolverse-theme",next);applyTheme(next)});
+  if(themeBtn) themeBtn.hidden=true;
+  const themeColor=document.querySelector('meta[name="theme-color"]');
+  if(themeColor) themeColor.content="#f5f7fc";
   document.addEventListener("keydown",e=>{if(e.key==="/"&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();search.focus()}if(e.key==="Escape"&&document.activeElement===search){search.value="";query="";renderTools();search.blur()}});
   applyLanguage();
   if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
